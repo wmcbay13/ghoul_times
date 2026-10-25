@@ -20,7 +20,7 @@ Tracks are public-domain US sound recordings published before 1926, taken from t
 | --- | --- | --- |
 | Danse Macabre (Saint-Saëns), parts 1 & 2 | Philadelphia Orchestra, cond. Leopold Stokowski | 1925 |
 | Dance of the Skeletons (Thomas S. Allen) | Sodero's Band | 1915 |
-| Witch's Dance (Paganini) | Váša Příhoda, violin | 1922 |
+| Witch's Dance | Váša Příhoda, violin | 1922 |
 | In the Hall of the Mountain King (Grieg) | Band of H.M. Scots Guards | 1922 |
 | Dance of the Goblins | Billy Whitlock | 1923 |
 | Skeleton Dance | Leonard Derby | 1924 |
