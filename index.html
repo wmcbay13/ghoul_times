@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ghoul Times</title>
+  <meta name="description" content="An animated Halloween display for TVs and tablets.">
+  <meta name="theme-color" content="#121210">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Shrikhand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="stage" class="stage" aria-label="Halloween scene">
+    <div class="art web web-tl" data-art="web"></div>
+    <div class="art web web-tr" data-art="web"></div>
+    <div class="art spider" data-art="spider"></div>
+    <div class="art disco" data-art="disco"></div>
+
+    <h1 class="title">
+      <span class="line">let the ghoul</span>
+      <span class="line">times <span class="pill"><span>roll</span></span></span>
+    </h1>
+
+    <div class="art cloud cloud-1" data-art="cloud"></div>
+    <div class="art cloud cloud-2" data-art="cloud"></div>
+    <div class="art moon" data-art="moon"></div>
+    <div class="art eyeball" data-art="eyeball"></div>
+    <div class="art ghost ghost-big" data-art="ghost"></div>
+    <div class="art ghost ghost-small" data-art="ghost"></div>
+    <div class="art bat-hover" data-art="bat"></div>
+
+    <div class="art pumpkin pumpkin-a pumpkin-green" data-art="pumpkin"></div>
+    <div class="art pumpkin pumpkin-b pumpkin-orange" data-art="pumpkin"></div>
+    <div class="art cat" data-art="cat"></div>
+    <div class="art pumpkin pumpkin-d pumpkin-green" data-art="pumpkin"></div>
+    <div class="art pumpkin pumpkin-c pumpkin-orange" data-art="pumpkin"></div>
+
+    <div id="sparkles" class="layer" aria-hidden="true"></div>
+    <div id="flybys" class="layer" aria-hidden="true"></div>
+  </main>
+
+  <script src="art.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
