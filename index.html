@@ -39,9 +39,26 @@
 
     <div id="sparkles" class="layer" aria-hidden="true"></div>
     <div id="flybys" class="layer" aria-hidden="true"></div>
+
+    <div class="music">
+      <button id="music-toggle" class="music-toggle" type="button" aria-pressed="false">
+        <svg class="record" viewBox="-50 -50 100 100" aria-hidden="true">
+          <circle r="48" fill="var(--ink-deep)" stroke="var(--cream)" stroke-width="3"/>
+          <g fill="none" stroke="var(--cream)" stroke-opacity="0.25" stroke-width="1.5">
+            <circle r="40"/><circle r="34"/><circle r="28"/>
+          </g>
+          <path d="M-30 -30 A42 42 0 0 1 10 -41" fill="none" stroke="var(--cream)" stroke-opacity="0.55" stroke-width="3" stroke-linecap="round"/>
+          <circle r="17" fill="var(--pink)"/>
+          <circle r="3" fill="var(--ink-deep)"/>
+        </svg>
+        <span class="music-label">play music</span>
+      </button>
+      <div id="now-playing" class="now-playing" aria-live="polite"></div>
+    </div>
   </main>
 
   <script src="art.js"></script>
   <script src="script.js"></script>
+  <script src="music.js"></script>
 </body>
 </html>

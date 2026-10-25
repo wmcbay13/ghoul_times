@@ -25,9 +25,9 @@
 
   // Sparkles: hand-placed so they sit in open sky, with random timing.
   const sparkles = [
-    [120, 470, 44], [640, 420, 30], [930, 560, 50], [1270, 690, 34], [90, 980, 40],
+    [120, 470, 44], [640, 420, 30], [930, 560, 50], [1270, 690, 34], [70, 880, 40],
     [640, 760, 26], [1420, 620, 46], [1880, 760, 32], [1000, 790, 28], [1150, 330, 24],
-    [380, 1030, 30], [1900, 1020, 26], [760, 330, 22], [1830, 390, 30], [560, 560, 22],
+    [1900, 1020, 26], [760, 330, 22], [1830, 390, 30], [560, 560, 22],
     [1080, 1000, 34], [60, 300, 26],
   ];
   const sparkleLayer = document.getElementById("sparkles");
@@ -100,5 +100,6 @@
     idleTimer = setTimeout(() => document.body.classList.add("idle"), 2500);
   }
   window.addEventListener("pointermove", wake);
+  window.addEventListener("keydown", wake);
   wake();
 })();
