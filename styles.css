@@ -1,0 +1,233 @@
+:root {
+  --bg: #121210;
+  --ink: #121210;
+  --ink-deep: #0a0a09;
+  --lime: #bcbf5a;
+  --pink: #c4687f;
+  --cream: #f1ecd9;
+  --glow: #f6d77a;
+  --stem: #6f6a34;
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+body.idle { cursor: none; }
+
+/* Fixed 1920x1080 design canvas, scaled to the screen by script.js */
+.stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1920px;
+  height: 1080px;
+  transform: translate(-50%, -50%) scale(0.5);
+  overflow: hidden;
+  background: radial-gradient(ellipse 70% 70% at 50% 45%, #1b1b18 0%, var(--bg) 60%, #0c0c0b 100%);
+}
+
+.art, .layer { position: absolute; }
+.layer { inset: 0; pointer-events: none; }
+.art svg, .flyby svg, .sparkle svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+/* ---------- Title ---------- */
+.title {
+  position: absolute;
+  left: 180px;
+  top: 70px;
+  font-family: "Bagel Fat One", "Arial Black", sans-serif;
+  font-weight: 400;
+  font-size: 168px;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--lime);
+  z-index: 2;
+}
+.title .line { display: block; white-space: nowrap; }
+
+.pill {
+  display: inline-block;
+  position: relative;
+  margin-left: -10px;
+  padding: 0 70px 10px;
+  border-radius: 50%;
+  background: var(--pink);
+  vertical-align: 0.06em;
+  animation: wobble 6s ease-in-out infinite alternate;
+}
+.pill span {
+  display: inline-block;
+  font-family: "Shrikhand", cursive;
+  font-size: 128px;
+  line-height: 1.3;
+  color: var(--ink);
+  transform: rotate(-4deg);
+}
+
+/* ---------- Placement ---------- */
+.web-tl { left: 0; top: 0; width: 330px; opacity: 0.35; transform-origin: 0 0; }
+.web-tr { right: 0; top: 0; width: 400px; opacity: 0.35; transform: scaleX(-1); }
+.spider { left: 1774px; top: -540px; width: 80px; z-index: 3; }
+.disco { left: 1440px; top: -20px; width: 290px; z-index: 1; }
+
+.cloud-1 { left: 640px; top: 480px; width: 250px; }
+.cloud-2 { left: 1290px; top: 430px; width: 190px; }
+.moon { left: 730px; top: 640px; width: 180px; }
+.eyeball { left: 1010px; top: 470px; width: 200px; }
+.ghost-big { left: 170px; top: 420px; width: 430px; z-index: 2; }
+.ghost-small { left: 1730px; top: 500px; width: 130px; }
+.bat-hover { left: 1470px; top: 590px; width: 180px; }
+
+.pumpkin-a { left: 640px; top: 860px; width: 230px; }
+.pumpkin-b { left: 880px; top: 905px; width: 180px; }
+.cat { left: 1180px; top: 690px; width: 240px; z-index: 1; }
+.pumpkin-d { left: 1720px; top: 880px; width: 180px; }
+.pumpkin-c { left: 1450px; top: 800px; width: 310px; z-index: 1; }
+
+.pumpkin-green { --pumpkin: #a9ac4c; --pumpkin-rib: #8b8d3b; }
+.pumpkin-orange { --pumpkin: #d98a4e; --pumpkin-rib: #b86f3a; }
+
+/* ---------- Ambient motion ---------- */
+.web-tl svg { animation: sway 11s ease-in-out infinite alternate; transform-origin: 0 0; }
+.web-tr svg { animation: sway 13s ease-in-out infinite alternate-reverse; transform-origin: 0 0; }
+
+.spider svg { animation: dangle 9s ease-in-out infinite alternate; }
+
+.disco svg { animation: swing 8s ease-in-out infinite alternate; transform-origin: 50% 0; }
+.disco-row { animation: spin 18s linear infinite; }
+.glint { transform-box: fill-box; transform-origin: center; animation: twinkle 3s ease-in-out infinite; }
+.glint.g2 { animation-delay: -1s; animation-duration: 3.6s; }
+.glint.g3 { animation-delay: -2s; animation-duration: 2.4s; }
+
+.ghost-big svg { animation: bob 7s ease-in-out infinite alternate; }
+.ghost-small svg { animation: bob 5.5s ease-in-out infinite alternate-reverse, haunt 12s ease-in-out infinite; }
+.ghost .eyes { transform-box: fill-box; transform-origin: center; animation: blink 6s infinite; }
+
+.bat-hover svg { animation: hover-flap 1.6s ease-in-out infinite alternate; transform-origin: 50% 70%; }
+.bat-hover { animation: bob 6s ease-in-out infinite alternate; }
+
+.cloud-1 svg { animation: drift 20s ease-in-out infinite alternate; }
+.cloud-2 svg { animation: drift 16s ease-in-out infinite alternate-reverse; }
+.moon svg { animation: rock 12s ease-in-out infinite alternate; transform-origin: 50% 50%; }
+.eyeball .iris { animation: look 11s ease-in-out infinite; }
+
+.cat-tail { transform-box: view-box; transform-origin: 160px 318px; animation: swish 3.5s ease-in-out infinite alternate; }
+.cat-eyes { transform-box: fill-box; transform-origin: center; animation: blink 6.5s infinite; }
+.cat-pupils { animation: glance 9s ease-in-out infinite; }
+
+.jack-face .glow { animation: flicker 3.2s infinite; }
+
+.sparkle {
+  position: absolute;
+  margin: -0.5em;
+  animation-name: twinkle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* Fly-bys launched from script.js */
+.flyby {
+  position: absolute;
+  left: 0;
+  animation: fly-right linear forwards;
+}
+.flyby.reverse { animation-name: fly-left; }
+.flyby.reverse .flyby-inner svg { transform: scaleX(-1); }
+.bat .flyby-inner { animation: flap 0.45s ease-in-out infinite alternate; }
+.drift-ghost .flyby-inner { animation: bob 3s ease-in-out infinite alternate, haunt 8s ease-in-out infinite; }
+
+@keyframes bob {
+  from { transform: translate(0, 0) rotate(-3deg); }
+  to   { transform: translate(14px, -30px) rotate(2deg); }
+}
+@keyframes haunt {
+  0%, 100% { opacity: 0.9; }
+  50%      { opacity: 0.35; }
+}
+@keyframes blink {
+  0%, 93%, 100% { transform: scaleY(1); }
+  96%           { transform: scaleY(0.1); }
+}
+@keyframes drift {
+  from { transform: translateX(-20px); }
+  to   { transform: translateX(30px); }
+}
+@keyframes rock {
+  from { transform: rotate(-7deg); }
+  to   { transform: rotate(5deg); }
+}
+@keyframes look {
+  0%, 12%   { transform: translate(0, 0); }
+  22%, 40%  { transform: translate(-16px, 8px); }
+  52%, 70%  { transform: translate(14px, -8px); }
+  82%, 100% { transform: translate(0, 0); }
+}
+@keyframes glance {
+  0%, 30%   { transform: translateX(0); }
+  38%, 55%  { transform: translateX(5px); }
+  63%, 80%  { transform: translateX(-5px); }
+  88%, 100% { transform: translateX(0); }
+}
+@keyframes swish {
+  from { transform: rotate(-8deg); }
+  to   { transform: rotate(6deg); }
+}
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  8%   { opacity: 0.75; }
+  12%  { opacity: 0.95; }
+  30%  { opacity: 0.85; }
+  47%  { opacity: 1; }
+  52%  { opacity: 0.65; }
+  56%  { opacity: 0.9; }
+  78%  { opacity: 0.8; }
+}
+@keyframes twinkle {
+  0%, 100% { transform: scale(0.45) rotate(0deg); opacity: 0.35; }
+  50%      { transform: scale(1) rotate(20deg); opacity: 1; }
+}
+@keyframes sway {
+  from { transform: rotate(-1.5deg); }
+  to   { transform: rotate(1.5deg); }
+}
+@keyframes dangle {
+  from { transform: translateY(0); }
+  to   { transform: translateY(150px); }
+}
+@keyframes swing {
+  from { transform: rotate(-2deg); }
+  to   { transform: rotate(2deg); }
+}
+@keyframes spin {
+  from { transform: translateX(0); }
+  to   { transform: translateX(270px); }
+}
+@keyframes wobble {
+  from { transform: rotate(-3deg); }
+  to   { transform: rotate(2deg); }
+}
+@keyframes flap {
+  from { transform: scaleY(1); }
+  to   { transform: scaleY(0.45); }
+}
+@keyframes hover-flap {
+  from { transform: scaleY(1); }
+  to   { transform: scaleY(0.7); }
+}
+@keyframes fly-right {
+  from { transform: translateX(-260px); }
+  to   { transform: translateX(2180px); }
+}
+@keyframes fly-left {
+  from { transform: translateX(2180px); }
+  to   { transform: translateX(-260px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-play-state: paused !important; }
+}
